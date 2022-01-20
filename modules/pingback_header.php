@@ -6,19 +6,14 @@ Author: Sergej Müller
 Author URI: http://ebiene.de
 */
 
-
 /* Sicherheitsabfrage */
-if ( !class_exists('Toolbox') ) {
+if (!class_exists('Toolbox')) {
 	die();
 }
 
-
 /* Ab hier kann's los gehen */
-add_filter(
-	'wp_headers',
-	function ($header) {
-		unset($header['X-Pingback']);
-		
-		return $header;
-	}
-);
+add_filter('wp_headers', function ($header) {
+	unset($header['X-Pingback']);
+
+	return $header;
+});

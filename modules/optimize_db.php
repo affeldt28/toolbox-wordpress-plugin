@@ -6,37 +6,32 @@ Author: Sergej Müller
 Author URI: http://ebiene.de
 */
 
-
 /* Sicherheitsabfrage */
-if ( !class_exists('Toolbox') ) {
+if (!class_exists('Toolbox')) {
 	die();
 }
-
 
 /* Ab hier kann's los gehen */
 function optimize_db_tables() {
 	/* Global */
 	global $wpdb;
-	
+
 	/* Tabellen */
 	$tables = $wpdb->tables();
-	
+
 	/* Loop */
-	foreach ( $tables as $table ) {
+	foreach ($tables as $table) {
 		$wpdb->query("OPTIMIZE TABLE `$table`");
 	}
 }
 
 /* Cronjob */
-if ( ! get_transient('sm_optimized_db') ) {
+if (!get_transient('sm_optimized_db')) {
 	set_transient(
-	   'sm_optimized_db',
-	   'ilovesweta',
-	   60 * 60 * 24 * 7 // 1 Woche
-	 );
-	 
-	add_action(
-		'admin_init',
-		'optimize_db_tables'
+		'sm_optimized_db',
+		'ilovesweta',
+		60 * 60 * 24 * 7 // 1 Woche
 	);
+
+	add_action('admin_init', 'optimize_db_tables');
 }
