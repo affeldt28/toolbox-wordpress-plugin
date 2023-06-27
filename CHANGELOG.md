@@ -30,4 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   [`6075c90`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/6075c904da63e2fab4bbbf79517c6807abaa84ea) - expand package.json _(commit by [@affeldt28](https://github.com/affeldt28))_
 -   [`7ba312e`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/7ba312e7fe80e3e15e7698b3ca210ed7b02ab4be) - update locks, add additional author info _(commit by [@affeldt28](https://github.com/affeldt28))_
 
+## [v0.1.0] - 2014-11-21
+
+Toolbox goes online
+
+[v0.1.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/commit/36b6e6d1f4b97b60d41d45adaca90dacbdb0873e
 [v0.2.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/compare/v0.1.0...v0.2.0

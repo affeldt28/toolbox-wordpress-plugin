@@ -44,12 +44,6 @@ Auf diese Weise müssen WordPress-Hooks und andere Funktionserweiterungen nicht 
 
 coming soon
 
-## Changelog
-
-### 0.1
-
--   Toolbox geht online
-
 ## Screenshots
 
 1. Toolbox Optionen
