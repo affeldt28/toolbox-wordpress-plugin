@@ -1,13 +1,12 @@
 # Toolbox
 
--   Contributors: sergej.mueller
--   Tags: tools, functions, modules
--   Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAQUT9RLPW8QN
+[![License: GPL v2 or later](https://img.shields.io/badge/License-GPLv2_or_later-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+
+This plugin is originated by sergej.mueller
+Since the original sources aren't online anymore and neither the documentation, I decided to share this with you all.
+
 -   Requires at least: 3.3
--   Tested up to: 4.0.1
--   Stable tag: trunk
--   License: GPLv2 or later
--   License URI: http://www.gnu.org/licenses/gpl-2.0.html
+-   Tested up to: 5.8.3
 
 Werkzeugkoffer für die Modularisierung der functions.php. WordPress Snippets bequem und übersichtlich als Module verwalten.
 
@@ -43,18 +42,7 @@ Auf diese Weise müssen WordPress-Hooks und andere Funktionserweiterungen nicht 
 
 ### Dokumentation
 
--   [Toolbox: WordPress Snippets als Module](http://playground.ebiene.de/toolbox-wordpress-plugin/ 'Toolbox: WordPress Snippets als Module')
-
-### Unterstützung
-
--   Per [Flattr](https://flattr.com/thing/818f7271bb99b074f3e0d749db181f17)
--   Per [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAQUT9RLPW8QN)
-
-### Autor
-
--   [Google+](https://plus.google.com/110569673423509816572 'Google+')
--   [Plugins](http://wpcoder.de 'Plugins')
--   [Portfolio](http://ebiene.de 'Portfolio')
+coming soon
 
 ## Changelog
 
