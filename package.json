@@ -1,9 +1,11 @@
 {
 	"name": "toolbox",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Toolbox for the modularization of the functions.php. Manage WordPress snippets conveniently and clearly as modules.",
+	"license": "GPL-2.0-or-later",
 	"author": {
-		"name": "sergej.mueller"
+		"name": "Sergej Müller",
+		"url": "https://github.com/sergejmueller"
 	},
 	"contributors": [
 		{
