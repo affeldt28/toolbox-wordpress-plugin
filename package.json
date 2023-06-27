@@ -15,9 +15,9 @@
 	],
 	"badges": [
 		{
-			"description": "License: GPL v3",
-			"url": "https://img.shields.io/badge/License-GPLv3-blue.svg",
-			"href": "https://www.gnu.org/licenses/gpl-3.0"
+			"description": "License: GPL v2 or later",
+			"url": "https://img.shields.io/badge/License-GPLv2_or_later-blue.svg",
+			"href": "https://www.gnu.org/licenses/gpl-2.0"
 		}
 	],
 	"repository": {
