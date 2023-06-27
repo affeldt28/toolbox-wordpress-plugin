@@ -34,5 +34,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Toolbox goes online
 
-[v0.1.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/commit/36b6e6d1f4b97b60d41d45adaca90dacbdb0873e
+[v0.1.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/commits/v0.1.0
 [v0.2.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/compare/v0.1.0...v0.2.0
