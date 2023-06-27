@@ -1,6 +1,42 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:base"
-    ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:base"
+	],
+	"dependencyDashboard": true,
+	"platformAutomerge": true,
+	"automergeSchedule": ["before 4am"],
+	"timezone": "Europe/Berlin",
+	"rangeStrategy": "update-lockfile",
+	"labels": ["dependencies"],
+	"packageRules": [
+		{
+			"matchPackagePatterns": ["*"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-minor-patch",
+			"automerge": true
+		},
+		{
+			"matchPackagePatterns": ["*"],
+			"matchUpdateTypes": ["major"],
+			"addLabels": ["breaking"]
+		},
+		{
+			"matchPackagePatterns": ["*"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"matchPaths": [".github/**"],
+			"groupName": "github actions (non-major)",
+			"automerge": true,
+			"ignoreTests": true,
+			"addLabels": ["github-actions"]
+		},
+		{
+			"matchPackagePatterns": ["*"],
+			"matchUpdateTypes": ["major"],
+			"matchPaths": [".github/**"],
+			"groupName": "github actions (major)",
+			"addLabels": ["github-actions", "breaking"]
+		}
+	]
 }
