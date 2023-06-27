@@ -1,0 +1,56 @@
+name: 📋 Release
+
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3.5.3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18
+
+      - name: 📄 Update package.json to only include prettier
+        run: |
+          updated=`cat package.json | jq 'del(.dependencies) | .devDependencies |= (to_entries | map(select(.key | match("prettier";"i"))) | from_entries)'`
+          echo $updated > package.json
+
+      - name: 💿 Install prettier
+        run: npm install
+
+      - name: 📝 Update CHANGELOG
+        id: changelog
+        uses: requarks/changelog-action@v1.8.1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ github.ref_name }}
+          excludeTypes: build,docs
+
+      - name: 📦 Create Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          draft: false
+          name: ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.changes }}
+          token: ${{ github.token }}
+
+      - name: 🎨 Format CHANGELOG.md
+        run: npx prettier --write CHANGELOG.md
+
+      - name: ⬆️ Commit CHANGELOG.md
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        with:
+          branch: main
+          commit_author: GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>
+          commit_message: 'docs(changelog): update CHANGELOG.md for ${{ github.ref_name }} [skip ci]'
+          file_pattern: CHANGELOG.md
