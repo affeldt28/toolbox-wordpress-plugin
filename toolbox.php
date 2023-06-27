@@ -6,7 +6,7 @@ Description: Ersetzt oder erweitert die <em>functions.php</em> im Theme, indem C
 Author: Sergej M&uuml;ller
 Author URI: http://wpcoder.de
 License: GPLv2 or later
-Version: 0.1
+Version: 0.1.0
 */
 
 /*
@@ -35,7 +35,6 @@ if (!class_exists('WP')) {
 /**
  * Toolbox
  */
-
 final class Toolbox {
 	/* Init */
 	private static $plugin_path;
@@ -44,24 +43,22 @@ final class Toolbox {
 	/**
 	 * Konstruktor der Klasse
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.2.0
 	 */
-
 	public static function init() {
 		/* Optionen */
 		$options = get_option('toolbox');
 
 		/* Sicherheit */
-		if (!empty($options['secure'])) {
-			if (
-				defined('DOING_AUTOSAVE') && DOING_AUTOSAVE or
-				defined('DOING_CRON') && DOING_CRON or
-				defined('DOING_AJAX') && DOING_AJAX or
-				defined('XMLRPC_REQUEST') && XMLRPC_REQUEST
-			) {
-				return;
-			}
+		if (
+			!empty($options['secure']) &&
+			((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) ||
+				(defined('DOING_CRON') && DOING_CRON) ||
+				(defined('DOING_AJAX') && DOING_AJAX) ||
+				(defined('XMLRPC_REQUEST') && XMLRPC_REQUEST))
+		) {
+			return;
 		}
 
 		/* Init */
@@ -89,10 +86,9 @@ final class Toolbox {
 	/**
 	 * Installation des Plugins auch für MU-Blogs
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function install() {
 		/* Multisite & Network */
 		if (is_multisite() && !empty($_GET['networkwide'])) {
@@ -115,10 +111,9 @@ final class Toolbox {
 	/**
 	 * Installation des Plugins bei einem neuen MU-Blog
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function install_later($id) {
 		/* Kein Netzwerk-Plugin */
 		if (!is_plugin_active_for_network(self::$plugin_path)) {
@@ -138,10 +133,9 @@ final class Toolbox {
 	/**
 	 * Eigentliche Installation der Option und der Tabelle
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	private static function _install_backend() {
 		add_option('toolbox', [
 			'modules' => [],
@@ -152,10 +146,9 @@ final class Toolbox {
 	/**
 	 * Uninstallation des Plugins pro MU-Blog
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function uninstall() {
 		/* Global */
 		global $wpdb;
@@ -184,10 +177,9 @@ final class Toolbox {
 	/**
 	 * Uninstallation des Plugins bei MU & Network-Plugin
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function uninstall_later($id) {
 		/* Kein Netzwerk-Plugin */
 		if (!is_plugin_active_for_network(self::$plugin_path)) {
@@ -207,10 +199,9 @@ final class Toolbox {
 	/**
 	 * Eigentliche Deinstallation des Plugins
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	private static function _uninstall_backend() {
 		delete_option('toolbox');
 	}
@@ -218,12 +209,11 @@ final class Toolbox {
 	/**
 	 * Rückgabe der IDs installierter Blogs
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @return  array  Blog-IDs
 	 */
-
 	private static function _get_blog_ids() {
 		/* Global */
 		global $wpdb;
@@ -236,10 +226,9 @@ final class Toolbox {
 	/**
 	 * Hinzufügen der Action-Links (Einstellungen links)
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function action_links($data) {
 		/* Rechte */
 		if (!current_user_can('manage_options')) {
@@ -263,14 +252,13 @@ final class Toolbox {
 	/**
 	 * Meta-Links zum Plugin
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   array   $links  Bereits vorhandene Links
 	 * @param   string  $page  Aktuelle Seite
 	 * @return  array   $data  Modifizierte Links
 	 */
-
 	public static function row_meta($links, $page) {
 		/* Rechte */
 		if ($page != self::$plugin_path) {
@@ -286,13 +274,12 @@ final class Toolbox {
 	/**
 	 * Filtert Module je nach Bereich
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   array  $modules  Alle Module
 	 * @return  array  $modules  Gefilterte Module
 	 */
-
 	private static function _filter_modules($modules) {
 		if (is_admin()) {
 			return array_filter(
@@ -310,12 +297,11 @@ final class Toolbox {
 	/**
 	 * Lädt Module je nach Bereich nach
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   array  $options  Plugin-Optionen
 	 */
-
 	private static function _require_modules($options) {
 		/* Leer */
 		if (empty($options['modules'])) {
@@ -347,13 +333,12 @@ final class Toolbox {
 	/**
 	 * Bereinigt den Modulnamen
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   string  $str  Unbehandelter Name
 	 * @return  string  $str  Bereinigter Name
 	 */
-
 	private static function _clean_module($str) {
 		return (string) preg_replace('/[^a-z0-9-_\.]/i', '', $str);
 	}
@@ -361,12 +346,11 @@ final class Toolbox {
 	/**
 	 * Gibt verfügbare Module zurück
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @return  array  $modules  Array mit gefundenen Modulen
 	 */
-
 	private static function _list_modules() {
 		/* Auslesen */
 		$files = glob(self::$modules_path . '*.php', GLOB_NOSORT | GLOB_ERR);
@@ -408,13 +392,12 @@ final class Toolbox {
 	/**
 	 * Liest Metadaten eines Moduls ein
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   string  $file  Moduldatei samt Pfad
 	 * @return  string         Ermittelter Modulname
 	 */
-
 	private static function _read_metadata($file) {
 		return get_file_data($file, [
 			'name' => 'Module Name',
@@ -426,14 +409,13 @@ final class Toolbox {
 	/**
 	 * Bereitet Module zum Speichern vor
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   array  $modules  Array mit Modulen
 	 * @param   array  $status   Array mit Status-Codes
 	 * @return  array  $output   Zusammengebautes Array mit Modulen
 	 */
-
 	private static function _prepare_modules($modules, $status) {
 		/* Leer */
 		if (
@@ -458,10 +440,9 @@ final class Toolbox {
 	/**
 	 * Registrierung der Optionsseite
 	 *
-	 * @since   0.1
+	 * @since   0.1.0
 	 * @change  0.2
 	 */
-
 	public static function add_page() {
 		/* Anlegen */
 		$page = add_options_page(
@@ -479,10 +460,9 @@ final class Toolbox {
 	/**
 	 * Hilfe-Tab oben rechts
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function add_help() {
 		/* Screen */
 		$screen = get_current_screen();
@@ -537,10 +517,9 @@ final class Toolbox {
 	/**
 	 * Registrierung der Optionen
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function register_settings() {
 		register_setting('toolbox', 'toolbox', [__CLASS__, 'validate_options']);
 	}
@@ -548,13 +527,12 @@ final class Toolbox {
 	/**
 	 * Validierung und Speicherung der Optionen
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 *
 	 * @param   array  $data  Array mit Formularwerten
 	 * @return  array         Array mit geprüften Werten
 	 */
-
 	public static function validate_options($data) {
 		return [
 			'secure' => (int) !empty($data['secure']),
@@ -568,10 +546,9 @@ final class Toolbox {
 	/**
 	 * Darstellung der Optionsseite
 	 *
-	 * @since   0.1
-	 * @change  0.1
+	 * @since   0.1.0
+	 * @change  0.1.0
 	 */
-
 	public static function options_page() {
 		?>
 		<div class="wrap">
