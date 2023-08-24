@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v3.6.0
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v3.8.1
@@ -36,7 +36,7 @@ jobs:
           excludeTypes: build,docs
 
       - name: 📦 Create Release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.13.0
         with:
           allowUpdates: true
           draft: false
