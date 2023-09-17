@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Toolbox
-Plugin URI: http://playground.ebiene.de/toolbox-wordpress-plugin/
+Plugin URI: https://github.com/affeldt28/toolbox-wordpress-plugin
 Description: Ersetzt oder erweitert die <em>functions.php</em> im Theme, indem Code-Schnipsel als Toolbox-Module angelegt und direkt im Plugin verwaltet werden.
-Author: Sergej M&uuml;ller
-Author URI: http://wpcoder.de
+Author: Marvin Affeldt
+Author URI: https://github.com/affeldt28
 License: GPLv2 or later
-Version: 0.1.0
+Version: 0.2.1
 */
 
 /*
