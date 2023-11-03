@@ -75,7 +75,6 @@ final class Toolbox {
 			add_action('admin_init', [__CLASS__, 'register_settings']);
 			add_action('admin_menu', [__CLASS__, 'add_page']);
 
-			add_filter('plugin_row_meta', [__CLASS__, 'row_meta'], 10, 2);
 			add_filter('plugin_action_links_' . self::$plugin_path, [
 				__CLASS__,
 				'action_links',
@@ -246,28 +245,6 @@ final class Toolbox {
 				),
 				__('Settings')
 			),
-		]);
-	}
-
-	/**
-	 * Meta-Links zum Plugin
-	 *
-	 * @since   0.1.0
-	 * @change  0.1.0
-	 *
-	 * @param   array   $links  Bereits vorhandene Links
-	 * @param   string  $page  Aktuelle Seite
-	 * @return  array   $data  Modifizierte Links
-	 */
-	public static function row_meta($links, $page) {
-		/* Rechte */
-		if ($page != self::$plugin_path) {
-			return $links;
-		}
-
-		return array_merge($links, [
-			'<a href="https://flattr.com/t/457444" target="_blank">Flattr</a>',
-			'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ZAQUT9RLPW8QN" target="_blank">PayPal</a>',
 		]);
 	}
 
