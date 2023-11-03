@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.2.2] - 2023-11-03
+
+### :bug: Bug Fixes
+
+-   [`5d14716`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/5d14716b446e73b044a0f219d9b9519dcdea7f95) - remove out of date links _(commit by [@affeldt28](https://github.com/affeldt28))_
+
+### :wrench: Chores
+
+-   [`964785a`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/964785a84149c3bdcebccfe65a621553f90ad419) - **deps**: update actions/checkout action to v4.1.0 _(commit by [@renovate[bot]](https://github.com/apps/renovate))_
+-   [`ef0be85`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/ef0be8581f3b400947fa36f38299d2727501a85c) - **deps**: update requarks/changelog-action action to v1.9.0 _(commit by [@renovate[bot]](https://github.com/apps/renovate))_
+-   [`6b2d057`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/6b2d05767edeef7444a3911780fb4533250db0d0) - **deps**: update stefanzweifel/git-auto-commit-action action to v5 _(commit by [@renovate[bot]](https://github.com/apps/renovate))_
+-   [`00a241c`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/00a241c8ebfea5c3e98ae4dce7e1eb1699f5b9ed) - **deps**: update actions/checkout action to v4.1.1 _(commit by [@renovate[bot]](https://github.com/apps/renovate))_
+-   [`3b99f05`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/3b99f0516b7341f9e5c7883e00fb845d600f85f4) - **deps**: update actions/setup-node action to v3.8.2 _(commit by [@renovate[bot]](https://github.com/apps/renovate))_
+-   [`d8994b9`](https://github.com/affeldt28/toolbox-wordpress-plugin/commit/d8994b9a6323cb9d03ad9835a022cc6f2b7cf3e2) - **deps**: update actions/setup-node action to v4 _(commit by [@renovate[bot]](https://github.com/apps/renovate))_
+
 ## [v0.2.1] - 2023-09-17
 
 ### :recycle: Refactors
@@ -59,3 +74,4 @@ Toolbox goes online
 [v0.1.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/commits/v0.1.0
 [v0.2.0]: https://github.com/affeldt28/toolbox-wordpress-plugin/compare/v0.1.0...v0.2.0
 [v0.2.1]: https://github.com/affeldt28/toolbox-wordpress-plugin/compare/v0.2.0...v0.2.1
+[v0.2.2]: https://github.com/affeldt28/toolbox-wordpress-plugin/compare/v0.2.1...v0.2.2
