@@ -6,7 +6,7 @@ Description: Ersetzt oder erweitert die <em>functions.php</em> im Theme, indem C
 Author: Marvin Affeldt
 Author URI: https://github.com/affeldt28
 License: GPLv2 or later
-Version: 0.2.1
+Version: 0.2.2
 */
 
 /*

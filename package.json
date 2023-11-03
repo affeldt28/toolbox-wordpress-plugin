@@ -1,6 +1,6 @@
 {
 	"name": "toolbox",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Toolbox for the modularization of the functions.php. Manage WordPress snippets conveniently and clearly as modules.",
 	"license": "GPL-2.0-or-later",
 	"author": {
