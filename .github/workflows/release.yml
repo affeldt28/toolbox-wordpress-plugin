@@ -48,7 +48,7 @@ jobs:
         run: npx prettier --write CHANGELOG.md
 
       - name: ⬆️ Commit CHANGELOG.md
-        uses: stefanzweifel/git-auto-commit-action@v5.0.0
+        uses: stefanzweifel/git-auto-commit-action@v5.0.1
         with:
           branch: main
           commit_author: GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>
