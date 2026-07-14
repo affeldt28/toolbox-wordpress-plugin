@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v7.0.0
         with:
-          node-version: 18
+          node-version: 24
 
       - name: 📄 Update package.json to only include prettier
         run: |
@@ -48,7 +48,7 @@ jobs:
         run: npx prettier --write CHANGELOG.md
 
       - name: ⬆️ Commit CHANGELOG.md
-        uses: stefanzweifel/git-auto-commit-action@v5.2.0
+        uses: stefanzweifel/git-auto-commit-action@v7.2.0
         with:
           branch: main
           commit_author: GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>
